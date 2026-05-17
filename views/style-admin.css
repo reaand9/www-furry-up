@@ -1,0 +1,336 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: #8E9CE6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 80px;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 32px;
+    letter-spacing: 3px;
+    color: rgb(0, 0, 0);
+    margin: 0;
+}
+
+.nav-buttons button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    background: none;
+    border: none;
+    color: rgb(0, 0, 0);
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.nav-buttons button:hover {
+    color: #CDD3F4;
+}
+
+/* MAIN CONTENT */
+
+.main-content{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 120px 20px 40px;
+}
+
+/* FORM */
+
+.whole-regis{
+    margin-top: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    width: 100%;
+    background-color: white;
+    padding: 30px;
+    max-width: 900px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* TABLE CONTAINER */
+
+.whole-regis-table{
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    width: 100%;
+    background-color: white;
+    padding: 30px;
+    max-width: 1800px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* TABLE */
+
+#Datatable{
+    margin: 0 auto;
+}
+
+table{
+    width: 100%;
+    max-width: 1200px;
+    color: black;
+    text-align: center;
+    margin: 0 auto;
+}
+
+table th{
+    text-align: center;
+    font-weight: 700;
+}
+
+table td{
+    padding: 15px 10px;
+}
+
+/* ACTION BUTTONS */
+
+.update-btn,
+.delete-btn,
+.add-btn{
+    width: 120px;
+    margin: 5px;
+    border-radius: 20px;
+    font-weight: 600;
+    color: white !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 0 12px;
+    border: none;
+}
+
+/* UPDATE */
+
+.update-btn{
+    background-color: #8E9CE6 !important;
+}
+
+/* DELETE */
+
+.delete-btn{
+    background-color:  #507ad5 !important;
+}
+
+/* ADD */
+
+.add-btn{
+    background-color: #8E9CE6 !important;
+    width: 100%;
+}
+
+/* ICON COLORS */
+
+.update-btn i,
+.delete-btn i,
+.add-btn i{
+    color: white !important;
+    margin: 0 !important;
+}
+
+/* TEXT */
+
+.row h6{
+    color: #555;
+    font-weight: 500;
+}
+
+.material-icons{
+    color: black;
+}
+
+.validate{
+    color: black;
+}
+
+.buttons{
+    border-radius: 25px !important;
+    color: black;
+}
+
+/* BUTTONS */
+
+.add{
+    display: flex;
+    justify-content: center;
+    color: #CDD3F4;
+}
+
+/* LABELS */
+
+.labelnames{
+    color: black !important;
+    padding-left: 20px !important;
+}
+
+/* INPUT FOCUS */
+
+.input-field input[type=text]:focus {
+    color: black;
+    border-bottom: 1px solid #CDD3F4;
+    box-shadow: 0 1px 0 0 #CDD3F4;
+}
+
+/* ICON FOCUS */
+
+.input-field .prefix.active {
+    color: #CDD3F4;
+}
+
+/* ROUNDED INPUTS */
+
+.round-input {
+    border-radius: 25px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    background-color: #f8f8f8 !important;
+}
+
+.round-input:focus {
+    border-bottom: 1px solid #CDD3F4 !important;
+    box-shadow: 0 1px 0 0 #CDD3F4 !important;
+    border-radius: 25px !important;
+}
+
+/* DROPDOWN */
+
+.select-wrapper input.select-dropdown {
+    color: #333 !important;
+    width: 400px;
+    border-radius: 15px !important;
+    padding-left: 15px !important;
+}
+
+.dropdown-content {
+    border-radius: 15px !important;
+    overflow: hidden;
+}
+
+.dropdown-content li > span {
+    color: #333 !important;
+}
+
+.dropdown-content li:hover {
+    background-color: #CDD3F4 !important;
+}
+
+.dropdown-content li.selected {
+    background-color: #CDD3F4 !important;
+}
+
+/* DASHBOARD */
+#cards{
+    padding: 40px 20px;
+}
+
+#cards h3{
+    font-weight: 700;
+    color: white;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* GROUP CONTAINER */
+.card-group{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+/* SMALLER CARDS */
+#cards .card{
+    width: 180px;
+    border-radius: 20px;
+    background: #CDD3F4 !important;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    margin: 0;
+}
+
+#cards .card-content{
+    padding: 15px !important;
+    text-align: center;
+}
+
+#cards .card-title{
+    color: #3f3f3f !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+}
+
+#cards .card-content p{
+    color: #555 !important;
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+section-header{
+    background-color: white;
+}
+
+/* CHART */
+
+#chartSection{
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.charts{
+    width: 40%;
+    background: white;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* FOOTER */
+
+#contact {
+    padding: 40px 20px;
+    background: linear-gradient(90deg, #2c2c2c, #1f1f1f);
+    margin-top: auto;
+}
+
+footer h2 {
+    text-align: center;
+    color: #ccc;
+    font-size: 1.8rem;
+    margin: 0 0 20px 0;
+}
+
+footer p {
+    text-align: center;
+    color: #ccc;
+    margin: 10px 0;
+}

@@ -1,0 +1,336 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: #8E9CE6;
+    display: flex;
+    flex-direction: column; /* IMPORTANT */
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 80px;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 32px;
+    letter-spacing: 3px;
+    color: rgb(0, 0, 0);
+    margin: 0;
+}
+
+.nav-buttons button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    background: none;
+    border: none;
+    color: rgb(0, 0, 0);
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.nav-buttons button:hover {
+    color: #CDD3F4;
+}
+
+/* Registration Page */
+
+.main-content{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 120px 0 40px; 
+    height: 100%;
+    max-height: 1500px;
+    
+}
+
+.whole-regis{
+    margin-top: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    width: 100%;
+    height: 100%;
+    
+
+    background-color: white;
+    padding: 30px;
+    max-width: 900px;
+    max-height: 1500px;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.row h6{
+    color: #555;
+    font-weight: 500;
+}
+
+.material-icons{
+    color: black;
+}
+
+.validate{
+    color: black;
+}
+
+.buttons{
+    border-radius: 25px !important; /* important para magapply ung effect huhu */
+    color: black;
+}
+
+
+.labelnames{
+    color: black !important;
+    padding-left: 20px !important;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    color: black;
+    border-bottom: 1px solid #CDD3F4;
+    box-shadow: 0 1px 0 0 #CDD3F4;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {   
+    color: #CDD3F4;
+}
+
+/* para maging round ung text field */
+.round-input {
+    border-radius: 25px !important; /* important para magapply ung effect huhu */
+    padding-left: 15px !important; 
+    padding-right: 15px !important;
+    background-color: #f8f8f8 !important;
+}
+
+.round-input:focus {
+    border-bottom: 1px solid #CDD3F4 !important;
+    box-shadow: 0 1px 0 0 #CDD3F4 !important; 
+    border-radius: 25px !important; 
+}
+
+/* DROPDOWN */
+
+/* main select box */
+.select-wrapper input.select-dropdown {
+    color: #333 !important;
+    width: 400px;
+    border-radius: 15px !important;
+    padding-left: 15px !important;
+}
+
+/* dropdown container */
+.dropdown-content {
+    border-radius: 15px !important;
+    overflow: hidden;
+}
+
+/* dropdown items */
+.dropdown-content li > span {
+    color: #333 !important;
+}
+
+/* hover */
+.dropdown-content li:hover {
+    background-color: #CDD3F4! important;
+}
+
+/* selected */
+.dropdown-content li.selected {
+    background-color: #CDD3F4 !important;
+}
+
+/*SHELTER-ADOPT*/
+
+.shelter {
+    position: relative;
+    background-image: url('login-regist.png');
+    background-size: cover;
+    background-position: center;
+    margin-top: 50px;
+    padding: 100px 60px;
+    text-align: center;
+}
+
+.shelter-header .tag {
+    color: #f4a300;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.shelter-header h2 {
+    font-weight: 700;
+    font-size: 48px;
+    margin: 20px 0;
+}
+
+.shelter-header h2 span {
+    color: #5c8df6;
+}
+
+.shelter-header p {
+    font-weight: 500;
+    font-size: 18px;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.tabs button {
+    padding: 10px 25px;
+    border: 1px solid #ccc;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.tabs .active {
+    border: 2px solid #5c8df6;
+    font-weight: 500;
+}
+
+.pet-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.pet-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.pet-card:hover {
+    transform: translateY(-10px);
+}
+
+.pet-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.pet-card h4 {
+    font-weight: 500;
+    margin: 15px 0 5px;
+    color: #f5755e;
+}
+
+.pet-card .info {
+    font-size: 14px;
+    color: #504f4f;
+    margin-bottom: 10px;
+}
+
+.pet-card p {
+    font-weight: 300;
+    font-size: 14px;
+    color: #555;
+}
+
+.pet-card button {
+    margin-top: auto;
+    align-self: center;
+    width: 250px;
+    font-family: 'Poppins', sans-serif;
+    background: #f5755e;
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pet-card button:hover {
+    background: #f5bd90;
+    transform: scale(1.05);
+}
+
+/* SIGN IN / SIGN UP BUTTONS */
+
+.auth-btn{
+    width: 100%;
+    height: 42px;
+    border-radius: 25px !important;
+    background-color: #8E9CE6 !important;
+    color: white !important;
+
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    transition: all 0.3s ease;
+}
+
+.auth-btn:hover{
+    background-color: #507ad5 !important;
+    transform: translateY(-2px);
+}
+
+.auth-btn i{
+    color: white !important;
+    margin: 0 !important;
+}
+
+
+/* FOOTER */
+#contact {
+  padding: 40px 20px;
+  background: linear-gradient(90deg, #2c2c2c, #1f1f1f);
+  margin-top: auto; 
+}
+
+footer h2 {
+  text-align: center;
+  color: #ccc;
+  font-size: 1.8rem;
+  margin: 0 0 20px 0;
+}
+
+footer p {
+  text-align: center;
+  color: #ccc;
+  margin: 10px 0;
+}
+
+
