@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> <!-- materialize css -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> <!-- materialize css -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- icons for materialize css -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> <!-- google font -->
     <link rel="stylesheet" href="style-signin-signup.css">
     <title>Sign Up Page</title>
 </head>
@@ -55,30 +56,35 @@
                         <i class="material-icons prefix">account_circle</i>
                         <input id="firstNameInput" type="text" style="width: 81%;" class="validate round-input" maxlength="49">
                         <label class="labelnames" for="firstNameInput">First Name</label>
+                        <span class="field-error" id="firstNameError"></span>
                     </div>
 
                     <div class="input-field col s12 m12 l12">
                         <i class="material-icons prefix">account_circle</i>
                         <input id="lastNameInput" type="text" style="width: 81%;" class="validate round-input" maxlength="49">
                         <label class="labelnames" for="lastNameInput">Last Name</label>
+                        <span class="field-error" id="lastNameError"></span>
                     </div>
 
                     <div class="input-field col s12 m12 l12"> <!-- age -->
                         <i class="material-icons prefix">calendar_today</i> <!-- icon -->
                         <input id="ageInput" type="text" class="validate round-input" style="width: 81%;" maxlength="3"> <!-- input type -->
                         <label class="labelnames" for="ageInput">Age</label> <!-- label -->
+                        <span class="field-error" id="ageError"></span>
                     </div>
 
                     <div class="input-field col s12 m12 l12"> <!-- email -->
                         <i class="material-icons prefix">email</i> <!-- icon -->
                         <input id="emailInput" type="text" class="validate round-input" style="width: 81%;" maxlength="49"> <!-- input type -->
                         <label class="labelnames" for="emailInput">Email</label> <!-- label -->
+                        <span class="field-error" id="emailError"></span>
                     </div>
 
                     <div class="input-field col s12 m12 l12"> <!-- password -->
-                        <i class="material-icons prefix">lock</i> <!-- icon -->
-                        <input id="passwordInput" type="text" class="validate round-input" style="width: 81%;" maxlength="49"> <!-- input type -->
+                        <i class="material-icons prefix" id="togglePasswordIcon" onclick="togglePasswordVisibility()">visibility_off</i> <!-- icon -->
+                        <input id="passwordInput" type="password" class="validate round-input" style="width: 81%;" maxlength="49"> <!-- input type -->
                         <label class="labelnames" for="passwordInput">Password</label>  <!-- label -->
+                        <span class="field-error" id="passwordError"></span>
                     </div>
 
                 <div class="input-field col s12 m12 l12"> <!-- user roles drop down -->
@@ -89,6 +95,7 @@
                         <?php endforeach ?>
                     </select>
                     <label>How will you help our furry friends?</label>
+                    <span class="field-error" id="roleError"></span>
                 </div>
 
                 <div class="add col s6 m6 l6"> <!-- add button -->

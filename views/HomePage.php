@@ -76,18 +76,16 @@
       <?php foreach($pets as $pet): ?>
 
         <div class="pet-card">
-            <img src="../uploads/<?php echo $pet['picture']; ?>">
-            <br>
-            <h4><?php echo $pet['name']; ?></h4>
-            <br>
-            <div class="info">
-                <?php echo $pet['age']; ?> years old • 
-                <?php echo $pet['petDescription']; ?> 
+            <div class="pet-card-image">
+                <img src="../uploads/<?php echo $pet['picture']; ?>" alt="<?php echo htmlspecialchars($pet['name']); ?>">
             </div>
-              <p><?php echo $pet['pet_statusDescription']; ?></p>
-              <button onclick="location.href='AdoptForm.php?petID=<?php echo $pet['petID']; ?>'">
-              Adopt
-              </button>
+            <div class="pet-card-info">
+                <h5><?php echo htmlspecialchars($pet['name']); ?></h5>
+                <p><strong>Age:</strong> <?php echo htmlspecialchars($pet['age']); ?> years old</p>
+                <p><strong>Description:</strong> <?php echo htmlspecialchars($pet['petDescription']); ?></p>
+                <p><strong>Status:</strong> <?php echo htmlspecialchars($pet['pet_statusDescription']); ?></p>
+            </div>
+            <button onclick="location.href='AdoptForm.php?petID=<?php echo $pet['petID']; ?>'">Adopt</button>
         </div>
         <?php endforeach; ?>
 

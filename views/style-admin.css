@@ -21,12 +21,14 @@ body{
     align-items: center;
     padding: 0 80px;
     background: #ffffff;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
     color: rgb(0, 0, 0);
     z-index: 1000;
 }
 
 .logo {
     font-size: 32px;
+    font-weight: 700;
     letter-spacing: 3px;
     color: rgb(0, 0, 0);
     margin: 0;
@@ -70,6 +72,139 @@ body{
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
 }
 
+.admin-dashboard {
+    padding-top: 120px;
+}
+
+.top-stats-row {
+    margin-bottom: 32px;
+}
+
+.stat-card {
+    border-radius: 24px;
+    padding: 24px 18px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+.stat-label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.muted-text {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.dashboard-grid {
+    gap: 24px;
+}
+
+.dashboard-card {
+    border-radius: 28px;
+    box-shadow: 0 16px 34px rgba(0,0,0,0.12);
+    margin-bottom: 28px;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+#Datatable {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+}
+
+.dashboard-card .card-content {
+    padding: 24px;
+}
+
+.calendar-card .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.calendar-month {
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.calendar-grid.labels {
+    margin-bottom: 8px;
+    color: #777;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.calendar-day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 42px;
+    border-radius: 14px;
+    background: #f7f8ff;
+    color: #1f1f1f;
+    font-weight: 600;
+}
+
+.calendar-day.muted {
+    color: rgba(0, 0, 0, 0.35);
+    background: transparent;
+}
+
+.calendar-day.today {
+    background: #507ad5;
+    color: white;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    margin: 0 auto;
+}
+
+.summary-card .collection {
+    margin: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.collection-item {
+    padding: 14px 16px;
+    border-radius: 16px;
+    margin: 6px 0;
+    background: #f5f7ff;
+}
+
+@media (max-width: 768px) {
+    .admin-dashboard {
+        padding-top: 100px;
+    }
+
+    .top-stats-row {
+        margin-bottom: 20px;
+    }
+
+    #Datatable {
+        min-width: 680px;
+    }
+
+    .calendar-day.today {
+        width: 38px;
+        height: 38px;
+    }
+}
+
 /* TABLE CONTAINER */
 
 .whole-regis-table{
@@ -77,28 +212,44 @@ body{
     border: 1px solid #ddd;
     border-radius: 40px;
     width: 100%;
+    max-width: 1400px;
     background-color: white;
     padding: 30px;
-    max-width: 1800px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
+}
+
+.table-header {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
 }
 
 /* TABLE */
 
 #Datatable{
-    margin: 0 auto;
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
 }
 
 table{
     width: 100%;
-    max-width: 1200px;
     color: black;
     text-align: center;
     margin: 0 auto;
+}
+
+table th,
+ table td{
+    padding: 14px 10px;
 }
 
 table th{
@@ -106,8 +257,38 @@ table th{
     font-weight: 700;
 }
 
-table td{
-    padding: 15px 10px;
+@media (max-width: 1080px) {
+    .whole-regis-table {
+        padding: 24px;
+    }
+
+    #Datatable {
+        min-width: 760px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .whole-regis,
+    .whole-regis-table {
+        max-width: 100%;
+        padding: 20px;
+        margin: 0 10px 20px;
+    }
+
+    #Datatable {
+        min-width: 680px;
+    }
+
+    table th,
+    table td {
+        padding: 12px 8px;
+        font-size: 0.92rem;
+    }
 }
 
 /* ACTION BUTTONS */
@@ -189,6 +370,21 @@ table td{
 .labelnames{
     color: black !important;
     padding-left: 20px !important;
+}
+
+.field-error{
+    display: block;
+    color: #d32f2f;
+    font-size: 13px;
+    margin-top: 6px;
+    padding-left: 45px;
+    min-height: 18px;
+    font-weight: 500;
+}
+
+.action-error{
+    padding-left: 0;
+    text-align: center;
 }
 
 /* INPUT FOCUS */
@@ -294,15 +490,29 @@ table td{
     margin-top: 10px;
 }
 
-section-header{
-    background-color: white;
+.section-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
 }
 
-/* CHART */
+.section-header h5{
+    margin: 0;
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.divider-line{
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.5);
+}
 
 #chartSection{
-    display: flex;
-    justify-content: center;
+    display: block;
     padding: 40px 20px;
 }
 
@@ -312,6 +522,38 @@ section-header{
     padding: 30px;
     border-radius: 30px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.chart-grid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    align-items: stretch;
+    padding: 40px 0;
+}
+
+.chart-card{
+    width: 100%;
+    background: white;
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+
+.chart-card .card-content{
+    padding: 26px !important;
+}
+
+.chart-card .card-title{
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 18px !important;
+}
+
+@media (max-width: 980px) {
+    .chart-grid{
+        flex-direction: column;
+    }
 }
 
 /* FOOTER */
@@ -334,3 +576,26 @@ footer p {
     color: #ccc;
     margin: 10px 0;
 }
+
+/* Full width dashboard and fixed table scroll */
+.full-width{
+    width: 100%;
+    max-width: none;
+    padding: 100px 20px 40px;
+    margin: 0;
+}
+
+.fixed-table{
+    max-height: 420px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* custom scrollbar */
+.fixed-table::-webkit-scrollbar{ width: 8px; }
+.fixed-table::-webkit-scrollbar-track{ background: transparent; }
+.fixed-table::-webkit-scrollbar-thumb{ background: rgba(80,122,213,0.6); border-radius: 10px; }
+
+/* chart sizing */
+.chart-card canvas{ width: 100% !important; height: 260px !important; }
+

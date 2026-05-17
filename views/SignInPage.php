@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> <!-- materialize css -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> <!-- materialize css -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- icons for materialize css -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> <!-- google font -->
     <link rel="stylesheet" href="style-signin-signup.css">
     <title>Sign in Page</title>
 </head>
@@ -38,12 +39,14 @@
                     <i class="material-icons prefix">account_circle</i> <!-- icon -->
                     <input id="emailInput" type="text" class="validate round-input" style="width: 81%;"> <!-- input type -->
                     <label class="labelnames" for="emailInput">Email</label> <!-- label -->
+                    <span class="field-error" id="emailError"></span>
                 </div>
 
-                <div class="input-field col s12 m12 l12">
-                    <i class="material-icons prefix">account_circle</i> <!-- icon -->
-                    <input id="passwordInput" type="password" class="validate round-input" style="width: 81%;"> <!-- input type -->
+                <div class="input-field col s12 m12 l12 password-field">
+                    <i class="material-icons prefix" id="togglePasswordIcon" onclick="togglePasswordVisibility()">visibility_off</i><!-- icon -->
+                    <input id="passwordInput" type="password" class="validate round-input password-with-icon" style="width: 81%;"> <!-- input type -->
                     <label class="labelnames" for="passwordInput">Password</label> <!-- label -->
+                    <span class="field-error" id="passwordError"></span>
                 </div>
 
                 <div class="add col s12 m12 l12"> <!-- button -->
