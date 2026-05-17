@@ -3,10 +3,10 @@
 return [
     'host' => 'smtp.gmail.com',
     'username' => 'furryupinfo@gmail.com',
-    'password' => 'fnbd lbpt gmif hzvs',
+    'password' => 'jkdd dutf mmvf iqxo',
     'port' => 587,
     'encryption' => 'tls',
-    'from_name' => 'Furry Up'
+    'from_name' => 'Furry up'
 ];
 
 

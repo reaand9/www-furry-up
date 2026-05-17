@@ -37,6 +37,7 @@
             return true;
         }
         catch (Exception $e){
+            error_log('PHPMailer sendEmail error: ' . $mail->ErrorInfo);
             return $mail->ErrorInfo;
         }
     }
