@@ -19,6 +19,9 @@
 
     $label = array_column($adminpetstatuscard, 'pet_statusDescription');
     $data = array_column($adminpetstatuscard, 'total_pets');
+
+    $label2 = array_column($adminrolecard, 'role_name');
+    $data2 = array_column($adminrolecard, 'total_users');
 ?>
 
 
@@ -57,28 +60,28 @@
 
         <div class="row top-stats-row">
             <div class="col s12 m6 l3">
-                <div class="card-panel blue lighten-5 center-align stat-card">
+                <div class="card-panel #c5cae9 indigo lighten-4 center-align stat-card">
                     <span class="stat-label">Total Users</span>
                     <h5><?= count($adminUsers) ?></h5>
                     <p class="muted-text">Active admin accounts</p>
                 </div>
             </div>
             <div class="col s12 m6 l3">
-                <div class="card-panel blue lighten-5 center-align stat-card">
+                <div class="card-panel #c5cae9 indigo lighten-4 center-align stat-card">
                     <span class="stat-label">Roles</span>
                     <h5><?= count($roles) ?></h5>
                     <p class="muted-text">Available role types</p>
                 </div>
             </div>
             <div class="col s12 m6 l3">
-                <div class="card-panel blue lighten-5 center-align stat-card">
+                <div class="card-panel #c5cae9 indigo lighten-4 center-align stat-card">
                     <span class="stat-label">Privileges</span>
                     <h5><?= count($privileges) ?></h5>
                     <p class="muted-text">Permission levels</p>
                 </div>
             </div>
             <div class="col s12 m6 l3">
-                <div class="card-panel blue lighten-5 center-align stat-card">
+                <div class="card-panel #c5cae9 indigo lighten-4 center-align stat-card">
                     <span class="stat-label">Status Types</span>
                     <h5><?= count($adminpetstatuscard) ?></h5>
                     <p class="muted-text">Pet status overview</p>
@@ -90,44 +93,44 @@
             <div class="col s12 l8">
                 <div class="card dashboard-card">
                     <div class="card-content">
-                        <span class="card-title" style="text-align: center; font-weight: 700;"><b>Create or Update a user</b></span>
+                        <span class="card-title" style="text-align: center; font-weight: 700;"><b>Create or update an account</b></span>
                         <div class="row">
-                            <div class="input-field col s12">
+                            <div class="input-field col s11">
                                 <i class="material-icons prefix">account_circle</i>
                                 <input id="firstNameInput" type="text" class="validate round-input">
                                 <label class="labelnames" for="firstNameInput">First Name</label>
                                 <span class="field-error" id="firstNameError"></span>
                             </div>
 
-                            <div class="input-field col s12">
+                            <div class="input-field col s11">
                                 <i class="material-icons prefix">account_circle</i>
                                 <input id="lastNameInput" type="text" class="validate round-input">
                                 <label class="labelnames" for="lastNameInput">Last Name</label>
                                 <span class="field-error" id="lastNameError"></span>
                             </div>
 
-                            <div class="input-field col s12 m6">
-                                <i class="material-icons prefix">calendar_today</i>
-                                <input id="ageInput" type="text" class="validate round-input" maxlength="3">
-                                <label class="labelnames" for="ageInput">Age</label>
-                                <span class="field-error" id="ageError"></span>
-                            </div>
-
-                            <div class="input-field col s12 m6">
+                            <div class="input-field col s11">
                                 <i class="material-icons prefix">email</i>
                                 <input id="emailInput" type="text" class="validate round-input">
                                 <label class="labelnames" for="emailInput">Email</label>
                                 <span class="field-error" id="emailError"></span>
                             </div>
 
-                            <div class="input-field col s12">
+                            <div class="input-field col s10 m5">
+                                <i class="material-icons prefix">calendar_today</i>
+                                <input id="ageInput" type="text" class="validate round-input" maxlength="3">
+                                <label class="labelnames" for="ageInput">Age</label>
+                                <span class="field-error" id="ageError"></span>
+                            </div>
+
+                            <div class="input-field col s11 m6">
                                 <i class="material-icons prefix" id="togglePasswordIcon" onclick="togglePasswordVisibility()">visibility_off</i>
                                 <input id="passwordInput" type="password" class="validate round-input">
                                 <label class="labelnames" for="passwordInput">Password</label>
                                 <span class="field-error" id="passwordError"></span>
                             </div>
 
-                            <div class="input-field col s12 m6">
+                            <div class="input-field col s11 m6">
                                 <select id="roleSelect">
                                     <option value="" disabled selected>Choose your option</option>
                                     <?php foreach($roles as $index => $role) : ?>
@@ -138,7 +141,7 @@
                                 <span class="field-error" id="roleError"></span>
                             </div>
 
-                            <div class="input-field col s12 m6">
+                            <div class="input-field col s11 m6">
                                 <select id="privilegeSelect">
                                     <option value="" disabled selected>Choose your option</option>
                                     <?php foreach($privileges as $index => $priv) : ?>
@@ -149,7 +152,7 @@
                                 <span class="field-error" id="privilegeError"></span>
                             </div>
 
-                            <div class="col s12 center-align">
+                            <div class="col s10 center-align">
                                 <a class="waves-effect waves-light btn add-btn" onclick="addAdminFunc()">
                                     <i class="material-icons left">add_circle</i>
                                     ADD OR UPDATE A USER
@@ -167,7 +170,7 @@
                     <div class="col s12 m8">
                         <div class="card dashboard-card">
                             <div class="card-content">
-                                <span class="card-title" style="text-align: center; font-weight: 700;">Data Table</span>
+                                <span class="card-title" style="text-align: center; font-weight: 700;">Data table</span>
                                 <div class="table-wrapper fixed-table">
                                     <table class="highlight centered responsive-table" id="Datatable">
                                         <thead>
@@ -223,6 +226,8 @@
                 </div>
             </div>
 
+            
+
             <div class="col s12 l4">
                 <div class="card dashboard-card calendar-card">
                     <div class="card-content">
@@ -277,14 +282,49 @@
 
                 
             </div>
+            
+            <div class="col s12 l12">
+            <section id="chartSection">
+
+                <div class="charts">
+                    <div>
+                        <canvas id="adminChart1"></canvas>
+                    </div>
+                </div>
+
+                <script>
+                    window.barData = {
+                        label: <?= json_encode($label); ?>,
+                        data: <?= json_encode($data); ?>
+                    }
+                </script>
+
+            </section>
+            </div>
+
+            <div class="col s12 l12">
+            <section id="chartSection2">
+
+                <div class="charts">
+                    <div>
+                        <canvas id="adminChart2"></canvas>
+                    </div>
+                </div>
+
+                <script>
+                    window.barData2 = {
+                        label: <?= json_encode($label2); ?>,
+                        data: <?= json_encode($data2); ?>
+                    }
+                </script>
+
+            </section>
+            </div>
         </div>
     </main>
 
+
     <section id="cards">
-
-        <h3>Dashboard</h3>
-
-
         <!-- USERS SECTION -->
         <div class="dashboard-section">
 
@@ -314,53 +354,7 @@
                 </div>
             </div>
 
-        <!-- PET STATUS SECTION -->
-        <div class="dashboard-section">
-
-            <div class="section-header">
-                <h5>Pet Status Overview</h5>
-                <div class="divider-line"></div>
-            </div>
-
-                <div class="card-group">
-
-                    <?php foreach($adminpetstatuscard as $index => $role) : ?>
-
-                    <div class="card">
-                        <div class="card-content white-text">
-
-                            <span class="card-title">
-                                <h4><?= $role['pet_statusDescription'] ?></h4>
-                            </span>
-
-                            <p>Total number of pets in this status: <?= $role['total_pets'] ?></p>
-
-                        </div>
-                    </div>
-
-                    <?php endforeach; ?>
-
-                </div>
-            </div>
-
         </section>
-
-    <section id="chartSection">
-
-        <div class="charts">
-            <div>
-                <canvas id="adminChart1"></canvas>
-            </div>
-        </div>
-
-        <script>
-            window.barData = {
-                label: <?= json_encode($label); ?>,
-                data: <?= json_encode($data); ?>
-            }
-        </script>
-
-    </section>
 
     <footer id="contact">
         <h2>CONTACT US</h2>
