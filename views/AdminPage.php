@@ -86,11 +86,11 @@
             </div>
         </div>
 
-        <div class="row dashboard-grid">
+        <div class="row dashboard-grid" >
             <div class="col s12 l8">
                 <div class="card dashboard-card">
                     <div class="card-content">
-                        <span class="card-title">Create or Update User</span>
+                        <span class="card-title" style="text-align: center; font-weight: 700;"><b>Create or Update a user</b></span>
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">account_circle</i>
@@ -167,7 +167,7 @@
                     <div class="col s12 m8">
                         <div class="card dashboard-card">
                             <div class="card-content">
-                                <span class="card-title">Data Table</span>
+                                <span class="card-title" style="text-align: center; font-weight: 700;">Data Table</span>
                                 <div class="table-wrapper fixed-table">
                                     <table class="highlight centered responsive-table" id="Datatable">
                                         <thead>
@@ -219,14 +219,7 @@
                         </div>
                     </div>
 
-                    <div class="col s12 m4">
-                        <div class="card dashboard-card chart-card">
-                            <div class="card-content">
-                                <span class="card-title">Status Overview</span>
-                                <canvas id="statusChart" style="max-height:260px;"></canvas>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
 
@@ -237,16 +230,16 @@
                             <div>
                                 <span class="calendar-month"><?= date('F Y') ?></span>
                             </div>
-                            <i class="material-icons">more_vert</i>
+                            
                         </div>
                         <div class="calendar-grid labels">
-                            <div>SU</div>
-                            <div>MO</div>
-                            <div>TU</div>
-                            <div>WE</div>
-                            <div>TH</div>
-                            <div>FR</div>
-                            <div>SA</div>
+                            <div>SUN</div>
+                            <div>MON</div>
+                            <div>TUE</div>
+                            <div>WED</div>
+                            <div>THU</div>
+                            <div>FRI</div>
+                            <div>SAT</div>
                         </div>
                         <div class="calendar-grid days">
                             <div class="calendar-day muted">26</div>
