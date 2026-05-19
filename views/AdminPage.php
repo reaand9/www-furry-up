@@ -20,7 +20,7 @@
     $label = array_column($adminpetstatuscard, 'pet_statusDescription');
     $data = array_column($adminpetstatuscard, 'total_pets');
 
-    $label2 = array_column($adminrolecard, 'role_name');
+    $label2 = array_column($adminrolecard, 'roleDescription');
     $data2 = array_column($adminrolecard, 'total_users');
 ?>
 
@@ -167,7 +167,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col s12 m8">
+                    <div class="col s12">
                         <div class="card dashboard-card">
                             <div class="card-content">
                                 <span class="card-title" style="text-align: center; font-weight: 700;">Data table</span>
@@ -322,39 +322,6 @@
             </div>
         </div>
     </main>
-
-
-    <section id="cards">
-        <!-- USERS SECTION -->
-        <div class="dashboard-section">
-
-            <div class="section-header">
-                <h5>User Roles</h5>
-                <div class="divider-line"></div>
-            </div>
-
-                <div class="card-group">
-
-                    <?php foreach($adminrolecard as $index => $role) : ?>
-
-                    <div class="card">
-                        <div class="card-content white-text">
-
-                            <span class="card-title">
-                                <?= $role['roleDescription'] ?>
-                            </span>
-
-                            <p>Total number of users in this role: <?= $role['total_users'] ?></p>
-
-                        </div>
-                    </div>
-
-                    <?php endforeach; ?>
-
-                </div>
-            </div>
-
-        </section>
 
     <footer id="contact">
         <h2>CONTACT US</h2>
