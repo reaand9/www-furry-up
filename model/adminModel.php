@@ -104,6 +104,34 @@
         return $response;
     }
 
+    public function cardPetSpecies(){
+        $selectQuery = "SELECT s.speciesDescription, COUNT(p.petID) AS total_pets FROM tbl_species s LEFT JOIN tbl_pets p ON s.speciesID = p.speciesID GROUP BY s.speciesID, s.speciesDescription ORDER BY s.speciesID;";
+        $response = $this->conn->prepare($selectQuery);
+        $response->execute();
+        return $response;
+    }
+
+    public function cardPetAge(){
+        $selectQuery = "SELECT CONCAT(age, ' year(s)') AS pet_age, COUNT(petID) AS total_pets FROM tbl_pets GROUP BY age ORDER BY age;";
+        $response = $this->conn->prepare($selectQuery);
+        $response->execute();
+        return $response;
+    }
+
+    public function cardUserAgeGroup(){
+        $selectQuery = "SELECT CASE WHEN age < 18 THEN 'Under 18' WHEN age BETWEEN 18 AND 25 THEN '18-25' WHEN age BETWEEN 26 AND 35 THEN '26-35' WHEN age BETWEEN 36 AND 50 THEN '36-50' ELSE '51+' END AS age_group, COUNT(userID) AS total_users FROM tbl_users GROUP BY age_group ORDER BY MIN(age);";
+        $response = $this->conn->prepare($selectQuery);
+        $response->execute();
+        return $response;
+    }
+
+    public function cardUserPrivilege(){
+        $selectQuery = "SELECT p.privilegeDescription, COUNT(u.userID) AS total_users FROM tbl_user_privilege p LEFT JOIN tbl_users u ON p.privilegeID = u.privilegeID GROUP BY p.privilegeID, p.privilegeDescription ORDER BY p.privilegeID;";
+        $response = $this->conn->prepare($selectQuery);
+        $response->execute();
+        return $response;
+    }
+
 }
 
 

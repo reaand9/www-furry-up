@@ -13,6 +13,10 @@
     $adminUsers = $adminmanager->getAdvancedUser();
     $adminrolecard = $adminmanager->getRoleCard();
     $adminpetstatuscard = $adminmanager->getPetStatusCard();
+    $adminpetspeciescard = $adminmanager->getPetSpeciesCard();
+    $adminpetagecard = $adminmanager->getPetAgeCard();
+    $adminuseragecard = $adminmanager->getUserAgeGroupCard();
+    $adminuserprivilegecard = $adminmanager->getUserPrivilegeCard();
 
     $rolemanager = new RoleManager();
     $roles = $rolemanager->getRoles();
@@ -22,6 +26,18 @@
 
     $label2 = array_column($adminrolecard, 'roleDescription');
     $data2 = array_column($adminrolecard, 'total_users');
+
+    $label3 = array_column($adminpetspeciescard, 'speciesDescription');
+    $data3 = array_column($adminpetspeciescard, 'total_pets');
+
+    $label4 = array_column($adminpetagecard, 'pet_age');
+    $data4 = array_column($adminpetagecard, 'total_pets');
+
+    $label5 = array_column($adminuseragecard, 'age_group');
+    $data5 = array_column($adminuseragecard, 'total_users');
+
+    $label6 = array_column($adminuserprivilegecard, 'privilegeDescription');
+    $data6 = array_column($adminuserprivilegecard, 'total_users');
 ?>
 
 
@@ -38,7 +54,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- icons for materialize css -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> <!-- google fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Noto+Sans+Display:wght@300;400;600;700;800&display=swap" rel="stylesheet"> <!-- google fonts-->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style-admin.css">
     <title>Admin Page</title>
 </head>
@@ -283,42 +298,74 @@
                 
             </div>
             
-            <div class="col s12 l12">
-            <section id="chartSection">
-
-                <div class="charts">
-                    <div>
-                        <canvas id="adminChart1"></canvas>
+            <div class="col s12">
+                <section id="chartSection">
+                    <div class="chart-grid">
+                        <div class="card chart-card">
+                            <div class="card-content">
+                                <span class="card-title">Pet Status</span>
+                                <canvas id="adminChart1"></canvas>
+                            </div>
+                        </div>
+                        <div class="card chart-card">
+                            <div class="card-content">
+                                <span class="card-title">User Roles</span>
+                                <canvas id="adminChart2"></canvas>
+                            </div>
+                        </div>
+                        <div class="card chart-card">
+                            <div class="card-content">
+                                <span class="card-title">Pets by Species</span>
+                                <canvas id="adminChart3"></canvas>
+                            </div>
+                        </div>
+                        <div class="card chart-card">
+                            <div class="card-content">
+                                <span class="card-title">Pets by Age</span>
+                                <canvas id="adminChart4"></canvas>
+                            </div>
+                        </div>
+                        <div class="card chart-card">
+                            <div class="card-content">
+                                <span class="card-title">Users by Age Group</span>
+                                <canvas id="adminChart5"></canvas>
+                            </div>
+                        </div>
+                        <div class="card chart-card">
+                            <div class="card-content">
+                                <span class="card-title">Users by Privilege</span>
+                                <canvas id="adminChart6"></canvas>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <script>
-                    window.barData = {
-                        label: <?= json_encode($label); ?>,
-                        data: <?= json_encode($data); ?>
-                    }
-                </script>
-
-            </section>
-            </div>
-
-            <div class="col s12 l12">
-            <section id="chartSection2">
-
-                <div class="charts">
-                    <div>
-                        <canvas id="adminChart2"></canvas>
-                    </div>
-                </div>
-
-                <script>
-                    window.barData2 = {
-                        label: <?= json_encode($label2); ?>,
-                        data: <?= json_encode($data2); ?>
-                    }
-                </script>
-
-            </section>
+                    <script>
+                        window.barData = {
+                            label: <?= json_encode($label); ?>,
+                            data: <?= json_encode($data); ?>
+                        }
+                        window.barData2 = {
+                            label: <?= json_encode($label2); ?>,
+                            data: <?= json_encode($data2); ?>
+                        }
+                        window.barData3 = {
+                            label: <?= json_encode($label3); ?>,
+                            data: <?= json_encode($data3); ?>
+                        }
+                        window.barData4 = {
+                            label: <?= json_encode($label4); ?>,
+                            data: <?= json_encode($data4); ?>
+                        }
+                        window.barData5 = {
+                            label: <?= json_encode($label5); ?>,
+                            data: <?= json_encode($data5); ?>
+                        }
+                        window.barData6 = {
+                            label: <?= json_encode($label6); ?>,
+                            data: <?= json_encode($data6); ?>
+                        }
+                    </script>
+                </section>
             </div>
         </div>
     </main>
@@ -332,6 +379,7 @@
     </footer>
 
     <script src="../scripts/Service.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../scripts/Chart.js"></script>
 </body>
 </html>

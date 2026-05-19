@@ -1,4 +1,4 @@
-﻿/* GLOBAL FONT */
+/* GLOBAL FONT */
 html {
     scroll-behavior: smooth;
     font-family: 'Poppins', sans-serif;
@@ -170,6 +170,7 @@ body {
 #contact {
     padding: 40px 20px;
     background: linear-gradient(90deg, #2c2c2c, #1f1f1f);
+    box-shadow: 0 -24px 55px rgba(0, 0, 0, 0.22);
 }
 
 footer h2 {
