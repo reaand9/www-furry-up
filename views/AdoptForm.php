@@ -171,12 +171,20 @@ function submitAdoption(){
                 petID: document.querySelector('input[name="petID"]').value
             },
             success: function(response) {
-                Swal.fire("Request sent", response, "success").then(function(){
+                showThemedAlert({
+                    title: "Request sent",
+                    text: response,
+                    icon: "success"
+                }).then(function(){
                     window.location.href = "HomePage.php";
                 });
             },
             error: function(xhr) {
-                Swal.fire("Error", xhr.responseText || "Unable to submit request.", "error");
+                showThemedAlert({
+                    title: "Error",
+                    text: xhr.responseText || "Unable to submit request.",
+                    icon: "error"
+                });
             }
         });
     }

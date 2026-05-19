@@ -87,6 +87,13 @@
                         <span class="field-error" id="passwordError"></span>
                     </div>
 
+                    <div class="input-field col s12 m12 l12"> <!-- confirm password -->
+                        <i class="material-icons prefix">lock</i> <!-- icon -->
+                        <input id="confirmPasswordInput" type="password" class="validate round-input" style="width: 81%;" maxlength="49"> <!-- input type -->
+                        <label class="labelnames" for="confirmPasswordInput">Confirm Password</label>  <!-- label -->
+                        <span class="field-error" id="confirmPasswordError"></span>
+                    </div>
+
                 <div class="input-field col s12 m12 l12"> <!-- user roles drop down -->
                     <select id="roleSelect">
                         <option value="" disabled selected>Choose your option</option>

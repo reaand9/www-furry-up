@@ -58,6 +58,22 @@
         return element.value.trim();
     }
 
+    function showThemedAlert(options){
+        var alertOptions = options || {};
+        var customClass = alertOptions.customClass || {};
+
+        return Swal.fire(Object.assign({}, alertOptions, {
+            buttonsStyling: false,
+            customClass: Object.assign({
+                popup: "furryup-alert-popup",
+                title: "furryup-alert-title",
+                htmlContainer: "furryup-alert-text",
+                confirmButton: "furryup-alert-confirm",
+                icon: "furryup-alert-icon"
+            }, customClass)
+        }));
+    }
+
     function isValidGmail(email){
         var gmailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
         return gmailPattern.test(email);
@@ -129,6 +145,7 @@
             { inputId: "ageInput", errorId: "ageError", eventName: "input" },
             { inputId: "emailInput", errorId: "emailError", eventName: "input" },
             { inputId: "passwordInput", errorId: "passwordError", eventName: "input" },
+            { inputId: "confirmPasswordInput", errorId: "confirmPasswordError", eventName: "input" },
             { inputId: "roleSelect", errorId: "roleError", eventName: "change" },
             { inputId: "privilegeSelect", errorId: "privilegeError", eventName: "change" }
         ];
@@ -158,7 +175,7 @@
             html = "Successfully added a user named <b>" + firstName + " " + lastName + "</b>.";
         }
 
-        Swal.fire({
+        showThemedAlert({
             title: title,
             html: html,
             icon: "success",
@@ -171,7 +188,7 @@
     }
 
     function showCreateUserError(xhr) {
-        Swal.fire({
+        showThemedAlert({
             icon: "error",
             title: xhr.status === 400 ? "Invalid Input" : "Unable to Add User",
             text: xhr.responseText || "Something went wrong while adding the user."
@@ -264,6 +281,20 @@
 
         return isValid;
     }
+
+    function validateConfirmPassword(passWord, confirmPassword){
+        if(!validateRequiredField(confirmPassword, "confirmPasswordError")){
+            return false;
+        }
+
+        if(passWord !== confirmPassword){
+            showFieldError("confirmPasswordError", "Passwords do not match");
+            return false;
+        }
+
+        clearFieldError("confirmPasswordError");
+        return true;
+    }
     
     function addFunc(){
         clearAllFieldErrors();
@@ -273,9 +304,13 @@
         var age = getTrimmedValue("ageInput");
         var email = getTrimmedValue("emailInput").toLowerCase();
         var passWord = getTrimmedValue("passwordInput");
+        var confirmPassword = getTrimmedValue("confirmPasswordInput");
         var select = document.getElementById("roleSelect").value;
 
-        if(!validateSignupFields(firstName, lastName, age, email, passWord, select)){
+        var signupFieldsValid = validateSignupFields(firstName, lastName, age, email, passWord, select);
+        var confirmPasswordValid = validateConfirmPassword(passWord, confirmPassword);
+
+        if(!signupFieldsValid || !confirmPasswordValid){
             return;
         }
 
@@ -363,7 +398,11 @@
             passWord: passWord
         },
         success: function(){
-            Swal.fire("Updated!", "User updated successfully", "success")
+            showThemedAlert({
+                title: "Updated!",
+                text: "User updated successfully",
+                icon: "success"
+            })
             .then(() => location.reload());
             }
         });
@@ -385,7 +424,11 @@
                 uID: userID
             },
             success: function(){
-                Swal.fire("Deleted!", "User deleted successfully", "success")
+                showThemedAlert({
+                    title: "Deleted!",
+                    text: "User deleted successfully",
+                    icon: "success"
+                })
                 .then(() => location.reload());
         }
     });
@@ -423,16 +466,24 @@
             success: function(response) {
             if (response == 1) {
             // ADMIN
-                Swal.fire("Success!", "Admin login successful!", "success")
+                showThemedAlert({
+                    title: "Success!",
+                    text: "Admin login successful!",
+                    icon: "success"
+                })
                     .then(() => redirectFunc(4)); // Admin Page
                 }
                 else if (response == 2) {
             // USER
-                Swal.fire("Success!", "Login successful!", "success")
+                showThemedAlert({
+                    title: "Success!",
+                    text: "Login successful!",
+                    icon: "success"
+                })
                 .then(() => redirectFunc(2)); // Dashboard
                 }
                 else {
-                    Swal.fire({
+                    showThemedAlert({
                     icon: "error",
                     title: "Error",
                     text: "Invalid credentials!"
@@ -440,7 +491,7 @@
             }
         },
         error: function(xhr, status, error) {
-            Swal.fire({
+            showThemedAlert({
                 icon: "error",
                 title: "ERm...",
                 text: xhr.responseText,
