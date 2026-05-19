@@ -63,6 +63,26 @@
             $response = $this->adminModel->cardPetStatus();
             return $response->fetchAll(PDO::FETCH_ASSOC);
         }
+
+        public function getPetSpeciesCard(){
+            $response = $this->adminModel->cardPetSpecies();
+            return $response->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public function getPetAgeCard(){
+            $response = $this->adminModel->cardPetAge();
+            return $response->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public function getUserAgeGroupCard(){
+            $response = $this->adminModel->cardUserAgeGroup();
+            return $response->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public function getUserPrivilegeCard(){
+            $response = $this->adminModel->cardUserPrivilege();
+            return $response->fetchAll(PDO::FETCH_ASSOC);
+        }
     
 
     }

@@ -1,177 +1,71 @@
 document.addEventListener("DOMContentLoaded", function () {
+    if (typeof Chart === "undefined") {
+        return;
+    }
 
-    // =========================
-    // CHART 1 - PET STATUS
-    // =========================
-    const ctx1 = document.getElementById("adminChart1");
+    const chartColors = [
+        '#8E9CE6',
+        '#CDD3F4',
+        '#AFC4F5',
+        '#B9D8F2',
+        '#C7BDEB',
+        '#D8C7EE',
+        '#E5E9FA'
+    ];
 
-    if (ctx1) {
-        new Chart(ctx1, {
-            type: 'bar',
+    const transparentColors = [
+        'rgba(142, 156, 230, 0.35)',
+        'rgba(205, 211, 244, 0.45)',
+        'rgba(175, 196, 245, 0.45)',
+        'rgba(185, 216, 242, 0.45)',
+        'rgba(199, 189, 235, 0.45)',
+        'rgba(216, 199, 238, 0.45)',
+        'rgba(229, 233, 250, 0.55)'
+    ];
+
+    const makeChart = function (canvasID, type, chartData, label) {
+        const ctx = document.getElementById(canvasID);
+
+        if (!ctx || !chartData) {
+            return;
+        }
+
+        new Chart(ctx, {
+            type: type,
             data: {
-                labels: window.barData.label,
+                labels: chartData.label,
                 datasets: [{
-                    label: "Status of Pets",
-                    data: window.barData.data,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(255, 205, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(201, 203, 207, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(255, 159, 64)',
-                        'rgb(255, 205, 86)',
-                        'rgb(75, 192, 192)',
-                        'rgb(54, 162, 235)',
-                        'rgb(153, 102, 255)',
-                        'rgb(201, 203, 207)'
-                    ],
+                    label: label,
+                    data: chartData.data,
+                    backgroundColor: type === 'bar' ? transparentColors : chartColors,
+                    borderColor: chartColors,
                     borderWidth: 2
                 }]
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
                 plugins: {
                     legend: {
-                        display: true
+                        position: type === 'bar' ? 'top' : 'bottom'
                     }
                 },
-                scales: {
+                scales: type === 'bar' ? {
                     y: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        ticks: {
+                            precision: 0
+                        }
                     }
-                }
+                } : {}
             }
         });
-    }
+    };
 
-    // =========================
-    // CHART 2 - USER ROLES
-    // =========================
-    const ctx2 = document.getElementById("adminChart2");
-
-    if (ctx2) {
-        new Chart(ctx2, {
-            type: 'pie',
-            data: {
-                labels: window.barData2.label,
-                datasets: [{
-                    label: "Status of Roles",
-                    data: window.barData2.data,
-                    backgroundColor: [
-                        '#ff6384',
-                        '#ff9f40',
-                        '#ffcd56',
-                        '#4bc0c0',
-                        '#36a2eb',
-                        '#9966ff',
-                        '#c9cbcf'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom'
-                    }
-                }
-            }
-        });
-    }
-
-});document.addEventListener("DOMContentLoaded", function () {
-
-    // =========================
-    // CHART 1 - PET STATUS
-    // =========================
-    const ctx1 = document.getElementById("adminChart1");
-
-    if (ctx1) {
-        new Chart(ctx1, {
-            type: 'bar',
-            data: {
-                labels: window.barData.label,
-                datasets: [{
-                    label: "Status of Pets",
-                    data: window.barData.data,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(255, 205, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(201, 203, 207, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(255, 159, 64)',
-                        'rgb(255, 205, 86)',
-                        'rgb(75, 192, 192)',
-                        'rgb(54, 162, 235)',
-                        'rgb(153, 102, 255)',
-                        'rgb(201, 203, 207)'
-                    ],
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: true
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    }
-
-    // =========================
-    // CHART 2 - USER ROLES
-    // =========================
-    const ctx2 = document.getElementById("adminChart2");
-
-    if (ctx2) {
-        new Chart(ctx2, {
-            type: 'pie',
-            data: {
-                labels: window.barData2.label,
-                datasets: [{
-                    label: "Status of Roles",
-                    data: window.barData2.data,
-                    backgroundColor: [
-                        '#ff6384',
-                        '#ff9f40',
-                        '#ffcd56',
-                        '#4bc0c0',
-                        '#36a2eb',
-                        '#9966ff',
-                        '#c9cbcf'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom'
-                    }
-                }
-            }
-        });
-    }
-
+    makeChart("adminChart1", 'bar', window.barData, "Status of Pets");
+    makeChart("adminChart2", 'pie', window.barData2, "Status of Roles");
+    makeChart("adminChart3", 'doughnut', window.barData3, "Pets by Species");
+    makeChart("adminChart4", 'bar', window.barData4, "Pets by Age");
+    makeChart("adminChart5", 'bar', window.barData5, "Users by Age Group");
+    makeChart("adminChart6", 'doughnut', window.barData6, "Users by Privilege");
 });
