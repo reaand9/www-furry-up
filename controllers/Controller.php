@@ -37,15 +37,74 @@
         exit;
     }
 
-    $body = "
-        <h3>New Signup</h3>
-        <p><strong>Name:</strong> " . htmlspecialchars($_POST["fName"] . " " . $_POST["lName"]) . "</p>
-        <p><strong>Email:</strong> " . htmlspecialchars($userEmail) . "</p>
-        <p><strong>Role ID:</strong> " . htmlspecialchars($_POST["roleID"]) . "</p>
-    ";
+    $body = '
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>New Signup</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
+
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td align="center">
+                
+                <table width="600" cellpadding="0" cellspacing="0" border="0" 
+                       style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+                    
+                    <!-- Header -->
+                    <tr>
+                        <td style="background-color: #8E9CE6; color: #ffffff; padding: 20px; text-align: center;">
+                            <h2 style="margin: 0;">New User Signup</h2>
+                        </td>
+                    </tr>
+
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 30px;">
+                            
+                            <table width="100%" cellpadding="10" cellspacing="0" border="0">
+                                
+                                <tr>
+                                    <td style="font-weight: bold; width: 150px;">Name:</td>
+                                    <td>' . htmlspecialchars($_POST["fName"] . " " . $_POST["lName"]) . '</td>
+                                </tr>
+
+                                <tr style="background-color: #f9f9f9;">
+                                    <td style="font-weight: bold;">Email:</td>
+                                    <td>' . htmlspecialchars($userEmail) . '</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-weight: bold;">Role:</td>
+                                    <td>' . htmlspecialchars($_POST["roleID"]) . '</td>
+                                </tr>
+
+                            </table>
+
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #f1f1f1; text-align: center; padding: 15px; font-size: 12px; color: #666;">
+                            This is an automated notification from your system.
+                        </td>
+                    </tr>
+
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
+';
 
     $result = sendEmail(
-        "furryupinfo@gmail.com",
+        "$userEmail",
         "Admin",
         "New user signed up",
         $body

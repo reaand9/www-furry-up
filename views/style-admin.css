@@ -557,6 +557,19 @@ table th{
     }
 }
 
+.chart-card{
+    height: 420px;
+}
+
+.chart-card .card-content{
+    height: 100%;
+}
+
+.chart-card canvas{
+    width: 100% !important;
+    height: 320px !important;
+}
+
 /* FOOTER */
 
 #contact {
